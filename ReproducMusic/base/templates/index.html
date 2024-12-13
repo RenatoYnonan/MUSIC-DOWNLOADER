@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comvertidor de Música</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main>
+        <div class="content-portada">
+            <div class="container">
+                <h1 class="title">De YouTube <br> a tu Playlist</h1>
+                <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nihil esse quaerat
+                    officia nemo at
+                    maiores
+                    odio molestiae! Ea reprehenderit voluptate ipsum quasi quod voluptatum minus harum molestiae eius
+                    labore!</p>
+            </div>
+        </div>
+        <div class="content-convertidor">
+            <div class="container">
+                {% block content %}
+                {% block content-mp3 %}
+                <h2 id="title-mp3" class="title-mp3">Convertidor MP3</h2>
+                <form method="POST" id="mi-formulario" style="width: 100%;">
+                    {% csrf_token %}
+                    <div class="input-convertidor">
+                        <div class="input-format-style">
+                            <input type="text" name="musica" id="format-input"
+                                placeholder="Ingresa la url de tu canción....." required>
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <div class="input-convert-flex">
+                            <select name="formato" id="formato-select" onchange="updateInputAttributes()">
+                                <option value="musica">MP3</option>
+                                <option value="video">MP4</option>
+                            </select>
+                            <button id="convertir-btn" class="btn-convertir" type="submit">CONVERTIR</button>
+                        </div>
+
+                    </div>
+
+                </form>
+                {% endblock %}
+                {% endblock %}
+            </div>
+        </div>
+        </div>
+        <div class="content-about">
+            <div class="container bout-container">
+                <div class="content-div-descr">
+                    <h2>LOREM IPSUM</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab atque qui saepe, voluptatum
+                        praesentium recusandae veritatis iste. Harum autem reprehenderit ea accusantium asperiores eos
+                        aut eligendi cumque! Quaerat, accusamus. Odio! </p>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid culpa rem, ipsam praesentium
+                        incidunt eius nostrum tenetur perspiciatis dolorem, eos qui dolore velit, fuga magnam corrupti
+                        repellendus. Mollitia, qui debitis.</p>
+
+                    <button class="btn-music">CONVERTIR</button>
+                </div>
+                <div class="content-div-img">
+                    <img height="350" width="350" src="{% static 'imagenes/pexels-kaboompics-6250.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="content-beneficios">
+            <div class="container benefis-container">
+                <div class="item-benefis">
+                    <i class="fa-solid fa-rocket"></i>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis animi sit nulla voluptatum,
+                        praesentium tempore porro perspiciatis eaque odio laborum, corrupti quibusdam</p>
+                </div>
+                <div class="item-benefis">
+                    <i class="fa-solid fa-rocket"></i>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate soluta excepturi unde neque
+                        minus reprehenderit ex sapiente, totam tenetur cumque pariatur quam labore</p>
+                </div>
+                <div class="item-benefis">
+                    <i class="fa-solid fa-rocket"></i>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem repudiandae cumque totam amet
+                        molestias, aliquam, ipsum ea similique culpa eligendi eos nihil quibusdam vel</p>
+                </div>
+                <div class="item-benefis">
+                    <i class="fa-solid fa-rocket"></i>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus beatae velit enim, harum
+                        laborum dicta magni! Laboriosam, dolor sequi? Velit exercitationem earum illum qui iure,</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-questions">
+            <div class="container">
+                <h2>Preguntas Frecuentes (FAQ)</h2>
+
+                <div class="faq-section">
+                    <div>
+                        <div class="faq-question">
+                            <p>¿Qué es este producto/servicio?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptate nam aliquam
+                                vitae, iure, facere esse quisquam deleniti voluptates quas quam! Ipsum impedit dolorum
+                                atque magni mollitia distinctio fugit et!</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="faq-question">
+                            <p>¿Quién puede utilizar este producto/servicio?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus maiores cumque
+                                dicta, distinctio facere repellendus, iusto, eligendi qui doloremque animi ullam
+                                deleniti! In ipsam, eaque quaerat dolorem nihil architecto laudantium?</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="faq-question">
+                            <p>¿Cómo funciona [característica específica]?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis perspiciatis alias
+                                rerum corporis non? Voluptatem id libero eos ea aut perspiciatis non nisi animi debitis!
+                                Facilis magnam accusantium iure perspiciatis.</p>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="faq-question">
+                            <p>¿Cómo funciona [característica específica]?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis perspiciatis alias
+                                rerum corporis non? Voluptatem id libero eos ea aut perspiciatis non nisi animi debitis!
+                                Facilis magnam accusantium iure perspiciatis.</p>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="faq-question">
+                            <p>¿Cómo funciona [característica específica]?</p>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis perspiciatis alias
+                                rerum corporis non? Voluptatem id libero eos ea aut perspiciatis non nisi animi debitis!
+                                Facilis magnam accusantium iure perspiciatis.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="conversion-modal">
+        <div class="modal-body" style="margin-top: 20%; font-size: 24px;">
+            <p>Convirtiendo tu archivo, por favor espera...</p>
+            <br>
+            <i class="fa-solid fa-compact-disc"></i>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-icon-redes">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+            </div>
+            <p>
+                <a href="/politica-de-privacidad">Política de Privacidad</a> |
+                <a href="/terminos-y-condiciones">Términos y Condiciones</a> |
+                <a href="/contacto">Contacto</a>
+            </p>
+            <span>&copy; 2024 Music. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const questions = document.querySelectorAll('.faq-question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.style.display === "none" || answer.style.display === "") {
+                    answer.style.display = "block";
+                } else {
+                    answer.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectElement = document.getElementById('formato-select');
+        const inputElement = document.getElementById('format-input');
+        const buttonElement = document.getElementById('convertir-btn');
+        const titleElement = document.getElementById('title-mp3')
+        const form = document.getElementById('mi-formulario');
+
+        const modal = document.getElementById('conversion-modal');
+
+        if (!selectElement || !inputElement) {
+            console.error("No se encontraron los elementos necesarios en el DOM.");
+            return;
+        }
+
+        form.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            modal.style.display = 'block';
+            buttonElement.disabled = true;
+            buttonElement.textContent = 'Convirtiendo...';
+
+            const formData =  new FormData(form);
+
+            fetch(form.action,{
+                method: 'POST',
+                body: formData,
+            })
+
+            .then(response => response.json())
+            .then(data => {
+                console.log("Conversión completada:", data);
+
+                modal.style.display = 'none'; // Oculta el modal cuando finalice
+                buttonElement.disabled = false; // Habilita el botón nuevamente
+                buttonElement.textContent = 'CONVERTIR';
+            })
+
+            setTimeout(() => {
+                modal.style.display = 'none'; // Oculta el modal cuando finalice
+                buttonElement.disabled = false; // Habilita el botón nuevamente
+                buttonElement.textContent = 'CONVERTIR'; // Restablece el texto del botón
+                form.submit(); // Envío real del formulario
+            }, 5000);
+
+            // Espera a que el formulario se envíe
+            // setTimeout(() => {
+            //     inputElement.value = ''; // Limpia el campo después del envío
+            // }, 10);
+
+            
+        });
+
+        selectElement.addEventListener('change', function () {
+            const selectedValue = selectElement.value;
+
+            console.log(`Opción seleccionada: ${selectedValue}`);
+
+            // Actualizamos los atributos del input sin depender de IDs dinámicos
+            if (selectedValue === 'musica') {
+                inputElement.name = 'musica';
+                buttonElement.textContent = 'CONVERTIR'
+                inputElement.placeholder = 'Ingresa la URL de tu canción...';
+                titleElement.textContent = 'Convertidor MP3'
+
+            } else if (selectedValue === 'video') {
+                inputElement.name = 'video';
+                buttonElement.textContent = 'DESCARGAR'
+                inputElement.placeholder = 'Ingresa la URL de tu video...';
+                titleElement.textContent = 'Convertidor MP4'
+            } else {
+                console.warn("Se seleccionó una opción no reconocida.");
+            }
+
+            console.log(`Nuevo name: ${inputElement.name}`);
+        });
+    });
+</script>
+
+
+
+</html>
